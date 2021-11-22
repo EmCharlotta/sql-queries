@@ -48,7 +48,7 @@ public class SqlQueries {
     //Name column containing employee's lastname "employee".
     //Name column containing manager's lastname "manager".
     //language=HSQLDB
-    String select10 = "Select lastname as manager, (select lastname from employee where id in ) as employee from employee;";
-
+    //String select10 = "Select lastname as employee, (select lastname from employee where id in (select manager from employee where lastname=employee)) as manager from employee";
+    String select10 = "Select a.lastname as employee, b.lastname as manager from employee a left join employee b on a.manager=b.id;";
 
 }
